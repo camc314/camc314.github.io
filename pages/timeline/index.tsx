@@ -82,6 +82,7 @@ const TimelineItem = ({
   i: number;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const extraText = data.extraText;
 
   function closeModal() {
     setIsOpen(false);
@@ -112,7 +113,7 @@ const TimelineItem = ({
           </p>
         </button>
       </li>
-      {data.extraText && (
+      {extraText && (
         <Transition appear show={isOpen} as={Fragment}>
           <Dialog
             onClose={closeModal}
@@ -163,10 +164,10 @@ const TimelineItem = ({
                     </button>
                   </div>
                   <div className="mt-2">
-                    {data.extraText.map((text, i2) => (
+                    {extraText.map((text, i2) => (
                       <p
                         className={`${
-                          i != data.extraText.length - 1 && "mb-4"
+                          i2 != extraText.length - 1 && "mb-4"
                         } text-gray-700 dark:text-gray-300`}
                         key={`tl-modal-li-${i}-${i2}`}
                       >

@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import React from 'react';
+import React, { ReactNode, useEffect } from "react";
 
 /**
  * Allows the setting of the page title in the <Head /> element
@@ -12,14 +11,14 @@ export default function Container({
   children
 }: {
   pageTitle?: string;
-  children: JSX.Element;
+  children: ReactNode;
 }): JSX.Element {
+  useEffect(() => {
+    document.title = pageTitle || "Cameron Clark";
+  }, [pageTitle]);
+
   return (
     <div>
-      <Head>
-        <title>{pageTitle}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div>{children}</div>
     </div>
   );

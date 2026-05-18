@@ -1,7 +1,6 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { useTheme } from "next-themes";
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
+import { useTheme } from "./theme";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
 const linksList = [
@@ -12,19 +11,20 @@ const linksList = [
 ];
 
 export function NavBar() {
-  const router = useRouter();
   const theme = useTheme();
 
   return (
     <div className="flex flex-col justify-center px-8">
       <div className="flex items-center justify-between w-full relative max-w-2xl mx-auto pt-8 pb-8">
         {linksList.map((link,i) => (
-          <Link href={link.path} key={`${i}-${link.path}`}>
-            <a
-              className={`py-2 px-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md ${link.path == router.route ? "font-semibold" : "font-extralight"}`}
-            >
-              {link.title}
-            </a>
+          <Link
+            activeProps={{ className: "font-semibold" }}
+            className="py-2 px-3 transition-all hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md font-extralight"
+            inactiveProps={{ className: "font-extralight" }}
+            key={`${i}-${link.path}`}
+            to={link.path}
+          >
+            {link.title}
           </Link>
         ))}
         <button

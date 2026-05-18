@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import React from "react";
 
 const links = [
@@ -29,8 +29,8 @@ export default function Footer() {
             <div className="flex flex-col gap-y-4" key={`link-col-${i}`}>
               {linkL.map((link, i2) =>
                 link.internal ? (
-                  <Link href={link.link} key={`link-item-${i}-${i2}`}>
-                    <a>{link.name}</a>
+                  <Link key={`link-item-${i}-${i2}`} to={link.link}>
+                    {link.name}
                   </Link>
                 ) : (
                   <a href={link.link} key={`link-item-${i}-${i2}`}>

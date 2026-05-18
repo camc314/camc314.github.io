@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Container from "./Container";
 import Footer from "./Footer";
 import { NavBar } from "./NavBar";
@@ -8,7 +8,7 @@ export default function ContainerWithFooterNav({
   children,
 }: {
   pageTitle?: string;
-  children: JSX.Element;
+  children: ReactNode;
 }): JSX.Element {
   return (
     <Container pageTitle={pageTitle}>

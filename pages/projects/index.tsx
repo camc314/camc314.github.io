@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "@tanstack/react-router";
 import React from "react";
 import ContainerWithFooterNav from "../../components/ContainerWithFooterNav";
 
@@ -13,7 +12,11 @@ type project = {
 const WikitoolsProjectBackground = () => {
   return (
     <div className="relative w-full h-full">
-      <Image src="/wikitools-background.png" layout="fill" />
+      <img
+        src="/wikitools-background.png"
+        alt=""
+        className="h-full w-full object-cover"
+      />
       <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center font-mono">
         <h2 className="text-2xl font-semibold">wikitools</h2>
       </div>
@@ -39,7 +42,7 @@ const projects: project[] = [
   },
   {
     title: "Personal Website",
-    link: "",
+    link: "/",
     projectBackground: <PersonalProjectBackground />,
   },
 ];
@@ -64,18 +67,19 @@ export default function ProjectsPage() {
 
 function ProjectItem({ project }: { project: project }): JSX.Element {
   return (
-    <Link href={project.link}>
-      <a className="rounded-md bg-gray-400 dark:bg-gray-600 h-48 relative overflow-hidden">
-        <span>{project.projectBackground || project.title}</span>
-        <div className="rounded-md bg-gray-900 bg-opacity-75 opacity-0 hover:opacity-100 transition-all absolute w-full h-full top-0 left-0 flex flex-col justify-end p-4">
-          <h3 className="text-3xl text-white font-semibold">{project.title}</h3>
-          {project.description && (
-            <p className="text-base text-white font-light">
-              {project.description}
-            </p>
-          )}
-        </div>
-      </a>
+    <Link
+      className="rounded-md bg-gray-400 dark:bg-gray-600 h-48 relative overflow-hidden"
+      to={project.link}
+    >
+      <span>{project.projectBackground || project.title}</span>
+      <div className="rounded-md bg-gray-900 bg-opacity-75 opacity-0 hover:opacity-100 transition-all absolute w-full h-full top-0 left-0 flex flex-col justify-end p-4">
+        <h3 className="text-3xl text-white font-semibold">{project.title}</h3>
+        {project.description && (
+          <p className="text-base text-white font-light">
+            {project.description}
+          </p>
+        )}
+      </div>
     </Link>
   );
 }
