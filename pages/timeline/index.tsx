@@ -94,32 +94,20 @@ const TimelineItem = ({
   return (
     <>
       <li className={`ml-4 ${i != TimeLineData.length - 1 ? "mb-6" : ""}`}>
-        <button
-          onClick={openModal}
-          className="text-left"
-          disabled={!data.extraText}
-        >
+        <button onClick={openModal} className="text-left" disabled={!data.extraText}>
           <span className="absolute flex items-center justify-center w-3 h-6 -left-1.5 ">
             <div className="xabsolute w-3 h-3 bg-gray-200 rounded-full -xleft-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
           </span>
           <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
             {data.date}
           </time>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            {data.title}
-          </h3>
-          <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-            {data.snippet}
-          </p>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{data.title}</h3>
+          <p className="text-base font-normal text-gray-500 dark:text-gray-400">{data.snippet}</p>
         </button>
       </li>
       {extraText && (
         <Transition appear show={isOpen} as={Fragment}>
-          <Dialog
-            onClose={closeModal}
-            open={isOpen}
-            className="fixed inset-0 z-10 overflow-y-auto"
-          >
+          <Dialog onClose={closeModal} open={isOpen} className="fixed inset-0 z-10 overflow-y-auto">
             <div className="min-h-screen px-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -132,10 +120,7 @@ const TimelineItem = ({
               >
                 <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25 dark:bg-opacity-35" />
               </Transition.Child>
-              <span
-                className="inline-block h-screen align-middle"
-                aria-hidden="true"
-              >
+              <span className="inline-block h-screen align-middle" aria-hidden="true">
                 &#8203;
               </span>
               <Transition.Child
@@ -149,10 +134,7 @@ const TimelineItem = ({
               >
                 <div className="inline-block w-full max-w-xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform dark:bg-zinc-800 bg-gray-200 shadow-xl rounded-xl">
                   <div className="flex flex-row justify-between items-start">
-                    <Dialog.Title
-                      as="h2"
-                      className="text-2xl font-semibold pr-2"
-                    >
+                    <Dialog.Title as="h2" className="text-2xl font-semibold pr-2">
                       {data.title}
                     </Dialog.Title>
                     <button

@@ -1,9 +1,4 @@
-import {
-  createRootRoute,
-  createRoute,
-  createRouter,
-  Outlet,
-} from "@tanstack/react-router";
+import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router";
 import Blog from "../pages/blog";
 import BlogSlug from "../pages/blog/[id]";
 import Home from "../pages";

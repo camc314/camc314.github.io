@@ -36,7 +36,7 @@ export default function Footer() {
                   <a href={link.link} key={`link-item-${i}-${i2}`}>
                     {link.name}
                   </a>
-                )
+                ),
               )}
             </div>
           ))}

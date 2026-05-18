@@ -16,4 +16,10 @@ Open the local URL printed by Vite, usually [http://localhost:5173](http://local
 npm run build
 ```
 
+## Formatting
+
+```bash
+npm run format
+```
+
 Routes are defined in `src/router.tsx`. Page components live in `pages/`, and shared layout components live in `components/`.

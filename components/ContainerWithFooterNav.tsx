@@ -15,11 +15,7 @@ export default function ContainerWithFooterNav({
       <>
         <NavBar />
         <main className="flex flex-col justify-center px-8">
-          <div
-            className={
-              "flex flex-col justify-center items-start max-w-2xl mx-auto pb-4 w-full"
-            }
-          >
+          <div className={"flex flex-col justify-center items-start max-w-2xl mx-auto pb-4 w-full"}>
             {children}
           </div>
         </main>

@@ -8,7 +8,7 @@ import React, { ReactNode, useEffect } from "react";
  */
 export default function Container({
   pageTitle,
-  children
+  children,
 }: {
   pageTitle?: string;
   children: ReactNode;
